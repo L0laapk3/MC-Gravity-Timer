@@ -1,9 +1,3 @@
-# Increment timer
-scoreboard players add $timer gt_dummy 1
-
-# Check for deaths
-execute as @a[scores={gt_deaths=1..}] run function gravity_timer:handle_death
-
 # Calculate remaining time for display
 scoreboard players operation $remaining gt_dummy = $limit gt_dummy
 scoreboard players operation $remaining gt_dummy -= $timer gt_dummy
