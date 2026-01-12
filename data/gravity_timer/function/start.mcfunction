@@ -13,7 +13,11 @@ scoreboard players set $timer gt_dummy 0
 # Reset total deaths
 scoreboard players set $total_deaths gt_dummy 0
 
-# Reset player death trackers (clear them so they don't trigger immediate death logic)
+# Reset player death trackers
 scoreboard players set @a gt_deaths 0
+scoreboard players set @a gt_detect_death 0
+
+# Set initial direction to DOWN (2) so the first roll is not DOWN
+scoreboard players set $current_dir gt_dummy 2
 
 tellraw @a [{"text":"Gravity Timer Scenario Restarted!","color":"green"}]

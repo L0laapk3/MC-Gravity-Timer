@@ -1,6 +1,7 @@
 # Create objectives
 scoreboard objectives add gt_dummy dummy
 scoreboard objectives add gt_deaths deathCount "Deaths"
+scoreboard objectives add gt_detect_death deathCount "Death Detection"
 scoreboard objectives add gt_sidebar dummy "Gravity Info"
 
 # --- CONFIGURATION (Change these values to customize) ---

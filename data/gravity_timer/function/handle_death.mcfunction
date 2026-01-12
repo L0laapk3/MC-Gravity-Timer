@@ -1,5 +1,5 @@
-# Reset player death count
-scoreboard players set @s gt_deaths 0
+# Reset detection score ONLY
+scoreboard players set @s gt_detect_death 0
 
 # Increment global total
 scoreboard players add $total_deaths gt_dummy 1
