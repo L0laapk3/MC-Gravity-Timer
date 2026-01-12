@@ -1,3 +1,6 @@
+# Play sound
+playsound block.beacon.activate master @a ~ ~ ~ 1 1
+
 # Check against minimum time limit
 scoreboard players operation $temp_min gt_dummy = $cfg_min_time gt_dummy
 execute if score $limit gt_dummy < $temp_min gt_dummy run scoreboard players operation $limit gt_dummy = $temp_min gt_dummy

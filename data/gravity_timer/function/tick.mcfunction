@@ -27,6 +27,12 @@ execute as @a[scores={gt_deaths=1..}] run function gravity_timer:handle_death
 # Check state again (in case death caused immediate loss/stop)
 execute unless score $state gt_dummy matches 1 run return 0
 
+# Ticking sound for last 5 seconds (100 ticks) when timer is close to limit
+# limit - timer <= 100
+scoreboard players operation $diff gt_dummy = $limit gt_dummy
+scoreboard players operation $diff gt_dummy -= $timer gt_dummy
+execute if score $diff gt_dummy matches 1..100 if score $timer gt_dummy matches 1.. run playsound block.note_block.hat master @a ~ ~ ~ 0.5 2
+
 # Check if timer finished
 execute if score $timer gt_dummy >= $limit gt_dummy run function gravity_timer:randomize
 execute if score $timer gt_dummy >= $limit gt_dummy run function gravity_timer:randomize
