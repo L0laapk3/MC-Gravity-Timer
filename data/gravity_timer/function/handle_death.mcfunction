@@ -4,11 +4,8 @@ scoreboard players set @s gt_detect_death 0
 # Increment global total
 scoreboard players add $total_deaths gt_dummy 1
 
-# Decrease limit by configured penalty
-scoreboard players operation $limit gt_dummy -= $cfg_penalty gt_dummy
+# Only apply penalty if the current limit is ABOVE the minimum floor
+execute if score $limit gt_dummy > $cfg_min_time gt_dummy run function gravity_timer:apply_penalty
 
-# Check for loss (Limit <= 0)
+# Check for loss (Limit <= 0) - This is technically reachable if min_time is set to 0, or if logic changes.
 execute if score $limit gt_dummy matches ..0 run function gravity_timer:lose
-
-# If not lost, notify and handle clamping
-execute if score $limit gt_dummy matches 1.. run function gravity_timer:handle_death_notify

@@ -9,8 +9,8 @@ scoreboard objectives add gt_sidebar dummy "Gravity Info"
 execute unless score $cfg_start_time gt_dummy matches 1.. run scoreboard players set $cfg_start_time gt_dummy 6000
 # Death Penalty in ticks (30s = 600 ticks)
 execute unless score $cfg_penalty gt_dummy matches 1.. run scoreboard players set $cfg_penalty gt_dummy 600
-# Minimum Time Limit in ticks (10s = 200 ticks)
-execute unless score $cfg_min_time gt_dummy matches 1.. run scoreboard players set $cfg_min_time gt_dummy 200
+# Minimum Time Limit in ticks (30s = 600 ticks)
+execute unless score $cfg_min_time gt_dummy matches 1.. run scoreboard players set $cfg_min_time gt_dummy 600
 # --------------------------------------------------------
 
 # Initialize variables if they don't exist
